@@ -8,8 +8,8 @@ from sklearn.metrics import r2_score
 import mlem
 import streamlit as st
 
-
-data = pd.read_csv("https://frenzy86.s3.eu-west-2.amazonaws.com/python/data/formart_house.csv")
+def main():
+    data = pd.read_csv("https://frenzy86.s3.eu-west-2.amazonaws.com/python/data/formart_house.csv")
 
 data = data.iloc[:-1 , :]
 data = data.astype(float)
@@ -44,3 +44,6 @@ sns.heatmap(data=correlation_matrix, annot=True)
 fig, ax = plt.subplots()
 sns.heatmap(data.corr(), ax=ax, annot=True)
 st.write(fig)
+
+if __name__ == '__main__':
+    main()

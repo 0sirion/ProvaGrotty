@@ -1,11 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score
-import joblib
+import mlem
 import streamlit as st
 import seaborn as sns
 
@@ -36,7 +32,7 @@ def main():
     
 
     lstat=st.number_input('inserisci istat',1,10,5)
-    load_model=joblib.load('model_.mlem')
+    load_model=mlem.api.load('model_.mlem')
     pred=load_model.predict([[crim,zn,indus,chas,nox,rm,age,dis,rad,tax,ptratio,b,lstat,]])
     st.write(f"il prezzo é: euro{round(pred[0],2)}")
 

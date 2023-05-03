@@ -11,13 +11,13 @@ import seaborn as sns
 
 def main():
     url="https://frenzy86.s3.eu-west-2.amazonaws.com/python/data/formart_house.csv"
-    home=pd.read_csv(url)
-    home=home.iloc[:-1]
-    home=home.apply(pd.to_numeric)
+    data=pd.read_csv(url)
+    data=data.iloc[:-1]
+    data=data.apply(pd.to_numeric)
     
     fig=plt.figure(figsize=(10,8))
     plt.title('case')
-    sns.heatmap(home.corr(),annot=True , cmap="Blues")
+    sns.heatmap(data.corr(),annot=True , cmap="Blues")
     st.pyplot(fig)
 
 #########################################################
@@ -36,7 +36,7 @@ def main():
     
 
     lstat=st.number_input('inserisci istat',1,10,5)
-    load_model=joblib.load('modello_home.pkl')
+    load_model=joblib.load('model_.mlem')
     pred=load_model.predict([[crim,zn,indus,chas,nox,rm,age,dis,rad,tax,ptratio,b,lstat,]])
     st.write(f"il prezzo é: euro{round(pred[0],2)}")
 

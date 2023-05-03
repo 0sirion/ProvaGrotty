@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 import joblib
 import streamlit as st
+import seaborn as sns
 
 def main():
     url="https://frenzy86.s3.eu-west-2.amazonaws.com/python/data/formart_house.csv"
